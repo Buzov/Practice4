@@ -92,7 +92,7 @@ public class MultiplyThread implements Runnable {
                 }
             }
         }
-        System.out.println("The stream number " + numderTread + " stopped.");
+        System.out.println("The tread number " + numderTread + " stopped.");
         sumTread = 0;
     }
 
