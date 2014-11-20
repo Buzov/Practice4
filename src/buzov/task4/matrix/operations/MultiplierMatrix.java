@@ -5,6 +5,7 @@ import buzov.task4.matrix.Matrix;
 import static buzov.task4.matrix.MatrixAbstract.setZeroRowsForThread;
 import buzov.task4.matrix.MatrixSelector;
 import buzov.task4.matrix.exception.IllegalSizesException;
+import buzov.task4.matrix.exception.IncorrectFormatOfData;
 import buzov.task4.matrix.exception.MatrixIndexOutOfBoundsException;
 import buzov.task4.matrix.tread.MultiplyThread;
 
@@ -27,9 +28,10 @@ public class MultiplierMatrix {
      * @return Returns the matrix which contains result of multiplication.
      * @throws IllegalSizesException
      * @throws MatrixIndexOutOfBoundsException
+     * @throws buzov.task4.matrix.exception.IncorrectFormatOfData
      */
     public static Matrix multiply(Matrix matrixA, Matrix matrixB) throws 
-            IllegalSizesException, MatrixIndexOutOfBoundsException {
+            IllegalSizesException, MatrixIndexOutOfBoundsException, IncorrectFormatOfData {
 
         Matrix matrixC = null;
         int rowsA = matrixA.getRowsCount();
@@ -96,9 +98,10 @@ public class MultiplierMatrix {
      * @return Returns the matrix which contains result of multiplication.
      * @throws IllegalSizesException
      * @throws MatrixIndexOutOfBoundsException
+     * @throws buzov.task4.matrix.exception.IncorrectFormatOfData
      */
     public static Matrix multiplyThread(Matrix matrixA, Matrix matrixB) throws
-            IllegalSizesException, MatrixIndexOutOfBoundsException {
+            IllegalSizesException, MatrixIndexOutOfBoundsException, IncorrectFormatOfData {
 
         Matrix matrixC = null;
         int rowsA = matrixA.getRowsCount();
@@ -106,7 +109,7 @@ public class MultiplierMatrix {
         int rowsB = matrixB.getRowsCount();
         int colsB = matrixB.getColsCount();
 
-        System.out.println("Multitread multiplication of matrixes A " + rowsA
+        System.out.println("Multitread multiplication of matrixes A" + rowsA
                 + "x" + colsA + " and B" + rowsB + "x" + colsB + ".");
 
         if ((rowsA != colsB) && (colsA != rowsB)) {
