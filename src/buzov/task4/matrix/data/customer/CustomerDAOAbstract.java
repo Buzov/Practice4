@@ -4,13 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  *
  * @author Artur Buzov
  */
-public abstract class CustomerDAOAbstract implements CustomerDAOInterface {
+public abstract class CustomerDAOAbstract {
 
     /**
      * Object of connection with a database.

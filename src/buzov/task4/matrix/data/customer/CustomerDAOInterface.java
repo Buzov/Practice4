@@ -1,15 +1,15 @@
 package buzov.task4.matrix.data.customer;
 
 import buzov.task4.matrix.data.enumDao.TypeMatrixResult;
-import buzov.task4.matrix.Matrix;
 import java.io.IOException;
 import java.sql.SQLException;
 
 /**
  *
  * @author Artur Buzov
+ * @param <T>
  */
-public interface CustomerDAOInterface {
+public interface CustomerDAOInterface<T extends DAOMatrixInterface> {
 
     /**
      * Inserts a matrix into a database, assigns to a matrix identification number. If in a database there is a matrix with such identification number, it will
@@ -20,7 +20,7 @@ public interface CustomerDAOInterface {
      * @param matrix_id Identification number of a matrix in a database.
      * @throws SQLException
      */
-    void insert(Matrix matrix, int matrix_id) throws SQLException;
+    void insert(T matrix, int matrix_id) throws SQLException;
 
     /**
      * Serializes three matrixes into a database.
@@ -30,7 +30,7 @@ public interface CustomerDAOInterface {
      * @param matrixC Matrix containing result of multiplication of the first and second matrix.
      * @throws SQLException
      */
-    void serializeResult(Matrix matrixA, Matrix matrixB, Matrix matrixC) throws SQLException;
+    void serializeResult(T matrixA, T matrixB, T matrixC) throws SQLException;
 
     /**
      * Deserializes a matrix from a row of a database. It is necessary to specify the identifier of a row and type of a returned matrix.
@@ -43,7 +43,7 @@ public interface CustomerDAOInterface {
      * @throws IOException
      * @throws SQLException
      */
-    Matrix deserializeMatrixResult(int id, TypeMatrixResult typeMatrixResult) throws
+    T deserializeMatrixResult(int id, TypeMatrixResult typeMatrixResult) throws
             ClassNotFoundException, IOException, SQLException;
 
     /**
@@ -53,7 +53,7 @@ public interface CustomerDAOInterface {
      * @return
      * @throws SQLException
      */
-    Matrix select(int matrix_id) throws SQLException;
+    T select(int matrix_id) throws SQLException;
 
     /**
      *
