@@ -1,5 +1,7 @@
 package buzov.task4.matrix;
 
+import buzov.task4.matrix.exception.IncorrectFormatOfData;
+
 /**
  *
  * @author Artur Buzov
@@ -32,13 +34,23 @@ public enum DataType {
      * @param typeNumber data type.
      * @return enum
      */
-    static public DataType getDataType(String typeNumber) {
+    static public DataType getDataType(String typeNumber) throws IncorrectFormatOfData {
+
+        boolean dataException = true;
+        DataType dataType = null;
+
         for (DataType type : DataType.values()) {
             if (type.getDataTypeValue().equals(typeNumber)) {
-                return type;
+                dataException = false;
+                dataType = type;
             }
         }
-        throw new RuntimeException("unknown type");
+
+        if (dataException) {
+            throw new IncorrectFormatOfData("unknown type");
+        }
+
+        return dataType;
     }
 
     /**

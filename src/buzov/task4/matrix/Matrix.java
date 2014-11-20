@@ -1,5 +1,6 @@
 package buzov.task4.matrix;
 
+import buzov.task4.matrix.data.customer.DAOMatrixInterface;
 import buzov.task4.matrix.exception.IllegalSizesException;
 import buzov.task4.matrix.exception.IncorrectFormatOfData;
 import buzov.task4.matrix.exception.MatrixIndexOutOfBoundsException;
@@ -9,7 +10,7 @@ import java.io.Serializable;
  *
  * @author Artur Buzov
  */
-public interface Matrix extends Serializable {
+public interface Matrix extends Serializable, DAOMatrixInterface {
 
     /**
      * Returns quantity of columns of the matrix.
